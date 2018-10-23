@@ -16,29 +16,53 @@ public class SuperArray{
   }
 
   public boolean isEmpty() {
-    if (size == 0) {
+    if (size() == 0) {
       return true;
     }
     return false;
   }
 
   public boolean add(String str) {
-    if (data.length > size) {
-      data[size] = str;
-      size += 1;
+    if (data.length > size()) {
+      data[size()] = str;
+      size() += 1;
       return true;
     }
     return false;
   }
 
   public String toString() {
-    if (size > 0) {
+    if (size() > 0) {
       String f = "[" + data[0];
-      for (int i = 1; i < size; i++) {
+      for (int i = 1; i < size(); i++) {
         f += "," + data[i];
       }
       f += "]";
       return f;
     }
     return "[]";
+
+  public String toStringDebug() {
+    if (data[0] == null) {
+      String f = "[null";
+    }
+    else {
+      String f = "[" + data[0];
+    }
+    for (int i = 0; i < data.length; i++) {
+      f += ","
+      if (data[i] == null) {
+        f += "null"
+      }
+      else {
+        f += data[i];
+      }
+    }
+    f += "]"
+    return f;
+  }
+
+  public String get(int index) {
+
+  }
 }
