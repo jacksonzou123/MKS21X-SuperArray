@@ -28,7 +28,12 @@ public class SuperArray{
       size += 1;
       return true;
     }
-    return false;
+    else {
+      resize();
+      data[size()] = str;
+      size += 1;
+      return true;
+    }
   }
 
   public String toString() {
@@ -46,7 +51,7 @@ public class SuperArray{
   public String toStringDebug() {
     String f;
     f = "[" + data[0];
-    for (int i = 0; i < data.length; i++) {
+    for (int i = 1; i < data.length; i++) {
       f += ",";
       if (data[i] == null) {
         f += null;
@@ -63,7 +68,7 @@ public class SuperArray{
     if (index >= 0 && index <= size()) {
       return data[index];
     }
-    System.out.println("Error: Index out of bounds (get() method)")
+    System.out.println("Error: Index out of bounds (get() method)");
     return null;
   }
 
@@ -72,7 +77,153 @@ public class SuperArray{
       data[index] = str;
       return str;
     }
-    System.out.println("Error: Index out of bounds (set() method)")
+    System.out.println("Error: Index out of bounds (set() method)");
     return null;
   }
+  private void resize() {
+    String[] newA = data;
+    data = new String[newA.length * 2];
+    for (int i = 0; i < newA.length; i++) {
+      data[i] = newA[i];
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
