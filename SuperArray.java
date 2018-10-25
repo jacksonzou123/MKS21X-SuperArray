@@ -118,6 +118,10 @@ public class SuperArray{
     return -1;
   }
 
+  public void add(int index, String target) {
+    
+  }
+
 
 
 
