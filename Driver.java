@@ -25,5 +25,7 @@ public class Driver{
     System.out.println("at index 0 " + a.get(0));
     System.out.println("at index 5 " + a.get(5));
     System.out.println("at index 10 " + a.get(10));
+    a.clear();
+    System.out.println(a);
   }
 }

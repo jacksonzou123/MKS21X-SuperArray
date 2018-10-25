@@ -53,7 +53,7 @@ public class SuperArray{
   public String toStringDebug() {
     String f;
     f = "[" + data[0];
-    for (int i = 1; i < data.length; i++) {
+    for (int i = 1; i < size(); i++) {
       f += ",";
       if (data[i] == null) {
         f += null;
@@ -75,13 +75,14 @@ public class SuperArray{
   }
 
   public String set(int index, String str) {
-    if (index >= 0 && index <= data.length) {
+    if (index >= 0 && index <= size()) {
       data[index] = str;
       return str;
     }
     System.out.println("Error: Index out of bounds (set() method)");
     return null;
   }
+
   private void resize() {
     String[] newA = data;
     data = new String[newA.length * 2];
@@ -90,7 +91,32 @@ public class SuperArray{
     }
   }
 
+  public boolean contains(String target) {
+    for (int i = 0; i < size(); i++) {
+      if (data[i].equals(target)) {
+        return true;
+      }
+    }
+    return false;
+  }
 
+  public int indexOf(String target) {
+    for (int i = 0; i < size(); i++) {
+      if (data[i].equals(target)) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  public int lastIndexOf(String target) {
+    for (int i = size() - 1; i > -1; i -= 1) {
+      if (data[i].equals(target)) {
+        return i;
+      }
+    }
+    return -1;
+  }
 
 
 
