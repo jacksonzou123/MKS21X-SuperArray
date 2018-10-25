@@ -39,8 +39,10 @@ public class SuperArray{
   public String toString() {
     if (size() > 0) {
       String f = "[" + data[0];
-      for (int i = 1; i < size(); i++) {
-        f += "," + data[i];
+      for (int i = 1; i < data.length; i++) {
+        if (data[i] != null) {
+          f += "," + data[i];
+        }
       }
       f += "]";
       return f;
@@ -73,7 +75,7 @@ public class SuperArray{
   }
 
   public String set(int index, String str) {
-    if (index >= 0 && index <= size()) {
+    if (index >= 0 && index <= data.length) {
       data[index] = str;
       return str;
     }
