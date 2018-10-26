@@ -23,17 +23,12 @@ public class SuperArray{
   }
 
   public boolean add(String str) {
-    if (data.length > size()) {
-      data[size()] = str;
-      size += 1;
-      return true;
-    }
-    else {
+    if (data.length == size()) {
       resize();
-      data[size()] = str;
-      size += 1;
-      return true;
     }
+    data[size()] = str;
+    size += 1;
+    return true;
   }
 
   public String toString() {
@@ -53,14 +48,8 @@ public class SuperArray{
   public String toStringDebug() {
     String f;
     f = "[" + data[0];
-    for (int i = 1; i < size(); i++) {
-      f += ",";
-      if (data[i] == null) {
-        f += null;
-      }
-      else {
-        f += data[i];
-      }
+    for (int i = 1; i < data.length; i++) {
+      f += "," + data[i];
     }
     f += "]";
     return f;
