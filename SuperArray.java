@@ -130,6 +130,7 @@ public class SuperArray{
       }
       return f;
     }
+    System.out.println("Error: index out of bounds (remove())");
     return null;
   }
 
