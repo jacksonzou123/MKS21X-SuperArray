@@ -67,7 +67,7 @@ public class SuperArray{
   }
 
   public String get(int index) {
-    if (index >= 0 && index <= size()) {
+    if (index >= 0 && index < size()) {
       return data[index];
     }
     System.out.println("Error: Index out of bounds (get() method)");
@@ -75,7 +75,7 @@ public class SuperArray{
   }
 
   public String set(int index, String str) {
-    if (index >= 0 && index <= size()) {
+    if (index >= 0 && index < size()) {
       data[index] = str;
       return str;
     }
@@ -119,146 +119,37 @@ public class SuperArray{
   }
 
   public void add(int index, String target) {
-    data[index] = target;
-    if (index < 0 || index > size()) {
-      System.out.println("Error: index out of bounds (add())");
+    if (index > 0 && index <= size()) {
+      if (size() == data.length) {
+        resize();
+      }
+      for (int i = size(); i > index; i -= 1) {
+        data[i] = data[i-1];
+      }
+      data[index] = target;
+    }
+    else {
+      System.out.println("Error: index out of bounds (add(index, target))");
     }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  public String remove(int index) {
+    if (index > 0 && index < size()) {
+      String f = data[index];
+      for (int i = index; i < size() - 1; i++) {
+        data[i] = data[i+1];
+      }
+      return f;
+    }
+    return null;
+  }
+
+  public boolean remove(String target) {
+    if (contains(target)) {
+      int index = indexOf(target);
+      remove(index);
+      return true;
+    }
+    return false;
+  }
 }
