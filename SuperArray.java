@@ -119,7 +119,10 @@ public class SuperArray{
   }
 
   public void add(int index, String target) {
-    
+    data[index] = target;
+    if (index < 0 || index > size()) {
+      System.out.println("Error: index out of bounds (add())");
+    }
   }
 
 
