@@ -7,6 +7,11 @@ public class SuperArray{
     size = 0;
   }
 
+  public SuperArray(int startCap) {
+    data = new String[startCap];
+    size = 0;
+  }
+
   public void clear() {
     size = 0;
   }
@@ -74,7 +79,7 @@ public class SuperArray{
 
   private void resize() {
     String[] newA = data;
-    data = new String[newA.length * 2];
+    data = new String[newA.length * 2 + 1];
     for (int i = 0; i < newA.length; i++) {
       data[i] = newA[i];
     }
@@ -116,6 +121,7 @@ public class SuperArray{
         data[i] = data[i-1];
       }
       data[index] = target;
+      size += 1;
     }
     else {
       System.out.println("Error: index out of bounds (add(index, target))");
@@ -128,7 +134,9 @@ public class SuperArray{
       for (int i = index; i < size() - 1; i++) {
         data[i] = data[i+1];
       }
+      size -= 1;
       return f;
+
     }
     System.out.println("Error: index out of bounds (remove())");
     return null;
