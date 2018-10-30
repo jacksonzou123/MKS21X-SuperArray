@@ -8,6 +8,9 @@ public class SuperArray{
   }
 
   public SuperArray(int startCap) {
+    if (startCap < 1) {
+      throw new IllegalArgumentException("SuperArray cannot be initialized with this length: " + startCap);
+    }
     data = new String[startCap];
     size = 0;
   }
@@ -64,8 +67,9 @@ public class SuperArray{
     if (index >= 0 && index < size()) {
       return data[index];
     }
-    System.out.println("Error: Index out of bounds (get() method)");
-    return null;
+    else{
+      throw new IndexOutOfBoundsException("Index out of bounds for get(index): " + index);
+    }
   }
 
   public String set(int index, String str) {
@@ -73,8 +77,9 @@ public class SuperArray{
       data[index] = str;
       return str;
     }
-    System.out.println("Error: Index out of bounds (set() method)");
-    return null;
+    else {
+      throw new IndexOutOfBoundsException("Index out of bounds for set(index):" + index);
+    }
   }
 
   private void resize() {
@@ -124,7 +129,7 @@ public class SuperArray{
       size += 1;
     }
     else {
-      System.out.println("Error: index out of bounds (add(index, target))");
+      throw new IndexOutOfBoundsException("Index out of bounds of add(index, target): " + index);
     }
   }
 
@@ -136,10 +141,10 @@ public class SuperArray{
       }
       size -= 1;
       return f;
-
     }
-    System.out.println("Error: index out of bounds (remove())");
-    return null;
+    else {
+      throw new IndexOutOfBoundsException("Index out of bounds of remove(index): " + index);
+    }
   }
 
   public boolean remove(String target) {
