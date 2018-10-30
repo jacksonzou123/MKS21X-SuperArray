@@ -8,7 +8,7 @@ public class SuperArray{
   }
 
   public SuperArray(int startCap) {
-    if (startCap < 1) {
+    if (startCap < 0) {
       throw new IllegalArgumentException("SuperArray cannot be initialized with this length: " + startCap);
     }
     data = new String[startCap];
