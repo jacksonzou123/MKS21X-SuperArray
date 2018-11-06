@@ -43,7 +43,7 @@ public class SuperArray{
     if (size() > 0) {
       String f = "[" + data[0];
       for (int i = 1; i < size(); i++) {
-          f += "," + data[i];
+          f += ", " + data[i];
       }
       f += "]";
       return f;
@@ -53,9 +53,12 @@ public class SuperArray{
 
   public String toStringDebug() {
     String f;
+    if (data.length == 0) {
+      return "[]";
+    }
     f = "[" + data[0];
     for (int i = 1; i < data.length; i++) {
-      f += "," + data[i];
+      f += ", " + data[i];
     }
     f += "]";
     return f;
@@ -117,7 +120,7 @@ public class SuperArray{
   }
 
   public void add(int index, String target) {
-    if (index > 0 && index <= size()) {
+    if (index >= 0 && index <= size()) {
       if (size() == data.length) {
         resize();
       }
