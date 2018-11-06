@@ -42,10 +42,8 @@ public class SuperArray{
   public String toString() {
     if (size() > 0) {
       String f = "[" + data[0];
-      for (int i = 1; i < data.length; i++) {
-        if (data[i] != null) {
+      for (int i = 1; i < size(); i++) {
           f += "," + data[i];
-        }
       }
       f += "]";
       return f;
@@ -74,8 +72,9 @@ public class SuperArray{
 
   public String set(int index, String str) {
     if (index >= 0 && index < size()) {
+      String f = data[index];
       data[index] = str;
-      return str;
+      return f;
     }
     else {
       throw new IndexOutOfBoundsException("Index out of bounds for set(index):" + index);
@@ -83,11 +82,11 @@ public class SuperArray{
   }
 
   private void resize() {
-    String[] newA = data;
-    data = new String[newA.length * 2 + 1];
-    for (int i = 0; i < newA.length; i++) {
-      data[i] = newA[i];
+    String[] f = new String[(data.length * 2) + 1];
+    for (int i = 0; i < size(); i++) {
+      f[i] = data[i];
     }
+    data = f;
   }
 
   public boolean contains(String target) {
@@ -134,11 +133,12 @@ public class SuperArray{
   }
 
   public String remove(int index) {
-    if (index > 0 && index < size()) {
+    if (index >= 0 && index < size()) {
       String f = data[index];
       for (int i = index; i < size() - 1; i++) {
         data[i] = data[i+1];
       }
+      data[size()-1] = null;
       size -= 1;
       return f;
     }

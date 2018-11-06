@@ -2,30 +2,22 @@ public class Driver{
   public static void main(String[] args) {
     SuperArray a = new SuperArray();
     System.out.println(a);
-    System.out.println("is empty?: " + a.isEmpty());
-    System.out.println("size: " + a.size());
-    a.add("fifteen");
-    System.out.println(a);
-    System.out.println("size: " + a.size());
-    System.out.println("is empty?: " + a.isEmpty());
     System.out.println(a.toStringDebug());
-    int i = 15;
-    while (i > 0) {
-      a.add("haha");
-      i -= 1;
+    a.add("one");
+    a.add("two");
+    a.add("three");
+    a.add(1,"four");
+    System.out.println(a);
+    for(int i = 0; i < 10; i++) {
+      a.add(""+i);
     }
     System.out.println(a);
-    System.out.println("size: " + a.size());
     System.out.println(a.toStringDebug());
-    a.set(5, "5 hahas");
-    a.set(18, "18 hahas");
+    System.out.println(a.remove(0));
     System.out.println(a);
-    System.out.println("size: " + a.size());
+    System.out.println(a.remove("four"));
+    System.out.println(a);
     System.out.println(a.toStringDebug());
-    System.out.println("at index 0 " + a.get(0));
-    System.out.println("at index 5 " + a.get(5));
-    System.out.println("at index 10 " + a.get(10));
-    a.clear();
-    System.out.println(a);
+    System.out.println(a.remove("yes"));
   }
 }
